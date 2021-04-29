@@ -9,7 +9,7 @@ output: html_document
 - 알파 분석 시작 밥 참여 ㅇㅇ 
 #활동수준:a1:a6 .68
 #경조: p1:p21(p3R제외), j39:40 .75
-#ㅅㅃ
+#ㅅㅃ 개씨발 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
