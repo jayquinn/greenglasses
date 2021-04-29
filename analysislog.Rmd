@@ -9,11 +9,15 @@ output: html_document
 - 알파 분석 시작 밥 참여 ㅇㅇ 
 야
 잭 작업중
-
+잭 힘들다
 #활동수준:a1:a6 .68
+<<<<<<< HEAD
 엉망으로
 #경조: p1:p21(p3R제외), j39:40 .75
 만든다
+=======
+#경조: p1:p21(p3R제외), j39:40 .75 holly
+>>>>>>> be6e034d395fd6199831e81294f1c46738250a95
 #ㅅㅃ 개씨발 fuck alot
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
