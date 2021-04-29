@@ -8,7 +8,7 @@ output: html_document
 - greg 함수 사용하여 R포함 변수 칼럼넘버 소팅. 중요한 함수이니 기억해둘 것.
 - 알파 분석 시작 밥 참여 ㅇㅇ 
 #활동수준:a1:a6 .68
-#경조: p1:p21(p3R제외), j39:40 .75
+#경조: p1:p21(p3R제외), j39:40 .75 holly
 #ㅅㅃ 개씨발 fuck alot
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
