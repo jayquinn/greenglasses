@@ -6,6 +6,7 @@ output: html_document
 ---
 2021-04-29
 - greg 함수 사용하여 R포함 변수 칼럼넘버 소팅. 중요한 함수이니 기억해둘 것.
+<<<<<<< HEAD
 - 알파 분석 시작 밥 참여 ㅇㅇ 
 야
 잭 작업중
@@ -46,3 +47,9 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+=======
+- 알파 분석 시작
+#가격
+#활동수준:a1:a6 .68
+#경조: p1:p21(p3R제외), j39:40 .75
+>>>>>>> Jack
