@@ -1,5 +1,5 @@
 library("psych")
-library(dplyr)
+library(dplyr);library(lavaan); library(semPlot)
 library(mirt)
 dat<-read.csv("C:/git/greenglasses/data120.csv",header = T)
 #미싱 데이터는 엑셀 단위에서 처리하였음
@@ -17,14 +17,24 @@ alpha(dat[c(73:75,77:78)]) #개방행동 .68 제외:71,72,76
 alpha(dat[c(325,326,328:345,228,229)])#경조 제외: 327
 alpha(dat[13:18]) #경직기질 .5
 alpha(dat[19:25]) #기분긍정 .87
-gzirt<-dat[19:25]
-model.pcm <- 'F1 = 1-7' 
-results.pcm <- mirt(data=gzirt, model=model.pcm, itemtype="Rasch", SE=TRUE, verbose=FALSE)
+gzirt<-dat[19:24]
+model.pcm <- 'F1 = 1-6' 
+results.pcm <- mirt(data=gzirt, model=model.pcm, itemtype="gpcm", SE=TRUE, verbose=FALSE)
 coef.pcm <- coef(results.pcm, IRTpars=TRUE, simplify=TRUE)
 items.pcm <- as.data.frame(coef.pcm$items)
 print(items.pcm)
 summary(results.pcm)
-plot(results.pcm, type = 'trace', which.items = c(1:7))
+plot(results.pcm, type = 'trace', which.items = c(1:6))
+
+
+
+model.cfa<-'F1=~a19+a20R+a21+a22R+a23+a24+a25'
+results.cfa<-cfa(model=model.cfa,data = gzirt)
+summary(results.cfa)
+score.CFA<-lavPredict(results.cfa)
+hist(score.CFA)
+semPaths(results.cfa, "par", weighted = TRUE, nCharNodes = 7, shapeMan = "rectangle",
+         sizeMan = 8, sizeMan2 = 5)
 
 
 alpha(dat[c(94:98,213)]) #긴장 .4
@@ -56,17 +66,22 @@ alpha(dat[c(165,166,172,176,178,181,189)]) #완벽타인 .48
 alpha(dat[c(195,196,208,243)]) #외로움 .65
 alpha(dat[c(350,354,358,363,369,372,382)]) #외향 .64
 alpha(dat[c(197,223,227,234,235,241,346,351,356,357,362,364,371,378,379,386)]) #우호.78 제외:375,381
-alpha(dat[c()]) #
-alpha(dat[c()]) #
-alpha(dat[c()]) #
-
-
-alpha(dat[1:31]) #기질차원척도 .69
-alpha(dat[1:6]) #활동수준 .68
-alpha(dat[7:12]) #접근기질 .68
-
-
-alpha(dat[26:31]) #집중력 .71
-
-alpha(dat[32:87]) #개방성 척도
+alpha(dat[c(315,316,319,323)]) #유머 .65
+alpha(dat[c(402:409)]) #인지 .70
+alpha(dat[c(192,259,244,252)]) #자극추구 .24
+alpha(dat[c(107,112,116)]) #자기수용 .36
+alpha(dat[c(190,198,297:306)]) #자기애 .64
+alpha(dat[c(123,124,126,127,128,194,308,310)]) #자기의식 .69 제외: 125
+alpha(dat[c(104,201,205,226,251,256)]) #자기주장 .62 제외:111,123,119
+alpha(dat[c(90,91,215)]) #자제.41
+alpha(dat[c(7:12)]) #접근기질 .68
+alpha(dat[c(142:145)]) #정보지지 .78
+alpha(dat[c(388:393)]) #정서대처 .24
+alpha(dat[c(129:135)]) #정서지지 .83
+alpha(dat[c(26:31)]) #집중력 .71
+alpha(dat[c(249,250,254)]) #타인관심.57
+alpha(dat[c(136:141)]) #평가지지 .77
+alpha(dat[c(32:38,236:240)]) #환상 .83
+alpha(dat[c(1:6)]) #활동수준 .68
+alpha(dat[c(307,309,399)]) #회피 .19
 
