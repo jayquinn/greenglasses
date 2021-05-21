@@ -153,12 +153,72 @@ mod<-'UH1=~q6R+q41+q11+q19
 fit<-cfa(mod,dat, std.lv=TRUE)
 summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
-########################################################
 
+#경조 아이디어 4문항
+head(dat[c(325,326,328:345,228,229)])
+mod<-'KJidea=~p2+p8+p9+p12'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE,standardized=TRUE)
+modindices(fit,sort=TRUE)
 
+#경조 폭발력 5문항
+head(dat[c(325,326,328:345,228,229)])
+mod<-'KJPB=~p10+p13+p18+p21+j39'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE,standardized=TRUE)
+modindices(fit,sort=TRUE)
 
+#경조 2요인 User A base R CFI .992 RMSEA .018 SRMR .056
+head(dat[c(325,326,328:345,228,229)])
+mod<-'KJidea=~p2+p8+p9+p12
+  KJPB=~p10+p13+p18+p21+j39'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE,standardized=TRUE)
+modindices(fit,sort=TRUE)
 
-fa(dat[c(197,223,227,234,235,241,346,351,356,362,364,371,378,379,386)],nfactors=2,rotate="varimax")
+#집중력 5문항 User A base R CFI 1 RMSEA 0 SRMR .024
+head(dat[c(26:31)])
+mod<-'KJidea=~a26+a27+a29+a30+a31R'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE,standardized=TRUE)
+modindices(fit,sort=TRUE)
+
+#인지 5문항 User A base R CFI .959 RMSEA .077 SRMR .053
+head(dat[c(402:409)])
+mod<-'KJidea=~t1+t2+t3+t4R+t5R'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE,standardized=TRUE)
+modindices(fit,sort=TRUE)
+
+#감정(기복?예민?민감?) 4문항 User A base R CFI .988 RMSEA .078 SRMR .028 
+head(dat[c(63:66,68:70,191,210,218,219,224)])
+mod<-'KJidea=~b32R+b39+j2+j21'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE,standardized=TRUE)
+modindices(fit,sort=TRUE)
+
+#목표지향 5문항 User A base R CFI 1 RMSEA 0 SRMR .03
+head(dat[c(108,122,102,106,114,121,255)])
+mod<-'KJidea=~e10+e8R+e16R+e23R+j66R'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE,standardized=TRUE)
+modindices(fit,sort=TRUE)
+
+#자기의식 4문항 User A base R CFI .991 RMSEA .059 SRMR .029
+head(dat[c(123,124,126,127,128,194,308,310)])
+mod<-'KJidea=~f4+f6+o2+o4'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE,standardized=TRUE)
+modindices(fit,sort=TRUE)
+
+#개방행동 4문항 User A base R CFI .988 RMSEA .065 SRMR .03
+head(dat[c(73:75,77:78)])
+mod<-'KJidea=~b42+b43+b46+b47'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE,standardized=TRUE)
+modindices(fit,sort=TRUE)
+
+fa(dat[c(325,326,328:345,228,229)],nfactors=3,rotate="varimax")
 
 #활동수준 User R base R CFI .913 RMSEA .088 MI NA
 head(dat[c(1:6)])
