@@ -218,16 +218,53 @@ fit<-cfa(mod,dat, std.lv=TRUE)
 summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
 
+#접근기질 4문항 User A base R CFI .976 RMSEA .109 SRMR .034
+head(dat[c(7:12)])
+mod<-'KJidea=~a8+a9+a10+a11'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE,standardized=TRUE)
+modindices(fit,sort=TRUE)
+
 fa(dat[c(325,326,328:345,228,229)],nfactors=3,rotate="varimax")
 
-#활동수준 User R base R CFI .913 RMSEA .088 MI NA
+
+#활동수준 4문항 User R base R CFI .956 RMSEA .076 SRMR .053
 head(dat[c(1:6)])
-mod<-'HDSJ=~a1+a2+a3R+a4+a5+a6'
+mod<-'HDSJ=~a1+a3R+a4+a5+a6'
 fit<-cfa(mod,dat, std.lv=TRUE)
 summary(fit,fit.measures=TRUE)
 modindices(fit,sort=TRUE)
 
-#자기주장 User A base R CFI 1 RMSEA 0 SRMR .037 MI NA
+#외로움 4문항 User A base R CFI 1 RMSEA 0 SRMR .024
+head(dat[c(195,196,208,243)])
+mod<-'HDSJ=~j6+j7+j19+j54'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE)
+modindices(fit,sort=TRUE)
+
+#유머 3문항 안잡힘
+head(dat[c(315,316,319,323)])
+mod<-'HDSJ=~o9+o10+o13'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE)
+modindices(fit,sort=TRUE)
+
+#외향(자극추구) 5문항 User A base R CFI 1 RMSEA 0 SRMR .023
+head(dat[c(350,354,358,363,369,372,382)])
+mod<-'HDSJ=~q5+q13+q18+q27+q37'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE)
+modindices(fit,sort=TRUE)
+
+#자기애 5문항 User A base R CFI 1 RMSEA 0 SRMR .035
+head(dat[c(190,198,297:306)])
+mod<-'HDSJ=~j1+j9+n1+n6+n8'
+fit<-cfa(mod,dat, std.lv=TRUE)
+summary(fit,fit.measures=TRUE)
+modindices(fit,sort=TRUE)
+
+
+#자기주장 6문항 User A base R CFI 1 RMSEA 0 SRMR .037
 mod<-'jujang=~e6+j12R+j16+j37+j62R+j67R'
 fit<-cfa(mod,dat, std.lv=TRUE,missing="fiml")
 summary(fit,fit.measures=TRUE)
