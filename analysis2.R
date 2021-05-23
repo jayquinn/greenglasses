@@ -236,7 +236,7 @@ modindices(fit,sort=TRUE)
 
 
 
-#활동수준 4문항 User R base R CFI .956 RMSEA .076 SRMR .053
+#활동수준 5문항 User R base R CFI .956 RMSEA .076 SRMR .053
 head(dat[c(1:6)])
 mod<-'HDSJ=~a1+a3R+a4+a5+a6'
 fit<-cfa(mod,dat, std.lv=TRUE)
