@@ -167,7 +167,7 @@ fit<-cfa(mod,dat, std.lv=TRUE)
 summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
 
-#경조 폭발력 4문항
+#경조 폭발력 5문항
 #USER A BASE R CFI 1 RMSEA 0 SRMR .034
 head(dat[c(325,326,328:345,228,229)])
 mod<-'KJPB=~p10+p13+p18+p21+j39'
