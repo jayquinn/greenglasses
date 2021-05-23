@@ -111,7 +111,7 @@ summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
 
 
-#분노 1 4문항 가벼운 화 ? 일종의 예민... (화가 많은데 못참음)
+#분노 1 4문항 User A base R CFI 1 RMSEA 0 SRMR .022 가벼운 화 ? 일종의 예민... (화가 많은데 못참음)
 head(dat[c(150:158,160:163)])
 mod<-'HS=~h1+h3R+h5+h12R'
 fit<-cfa(mod,dat, std.lv=TRUE)
@@ -119,6 +119,7 @@ summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
 semPaths(fit)
 #분노 2 4문항 뭔가 내재된 분노..(화가 많은데 억누름)
+# USER A base R CFI .997 RMSEA .036 SRMR .027
 head(dat[c(150:158,160:163)])
 mod<-'HS=~h2+h8+h9+h11'
 fit<-cfa(mod,dat, std.lv=TRUE)
@@ -134,6 +135,7 @@ summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
 
 #우호 1 협동 4문항
+#USER A BASE R CFI 1 RMSEA 0 SRMR .017
 head(dat[c(197,223,227,234,235,241,346,351,356,357,362,364,371,378,379,386)])
 mod<-'UH1=~q6R+q41+q11+q19'
 fit<-cfa(mod,dat, std.lv=TRUE)
@@ -141,6 +143,7 @@ summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
 
 #우호 2 인식 4문항
+# USER A BASE R CFI 1 RMSEA 0 SRMR .024
 head(dat[c(197,223,227,234,235,241,346,351,356,357,362,364,371,378,379,386)])
 mod<-'UH2=~q1+q26+q33R+j38'
 fit<-cfa(mod,dat, std.lv=TRUE)
@@ -157,6 +160,7 @@ summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
 semPaths(fit)
 #경조 아이디어 4문항
+#USER A BASE R CFI 1 RMSEA 0 SRMR .009
 head(dat[c(325,326,328:345,228,229)])
 mod<-'KJidea=~p2+p8+p9+p12'
 fit<-cfa(mod,dat, std.lv=TRUE)
@@ -164,6 +168,7 @@ summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
 
 #경조 폭발력 4문항
+#USER A BASE R CFI 1 RMSEA 0 SRMR .034
 head(dat[c(325,326,328:345,228,229)])
 mod<-'KJPB=~p10+p13+p18+p21+j39'
 fit<-cfa(mod,dat, std.lv=TRUE)
@@ -228,7 +233,7 @@ fit<-cfa(mod,dat, std.lv=TRUE)
 summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
 
-fa(dat[c(325,326,328:345,228,229)],nfactors=3,rotate="varimax")
+
 
 
 #활동수준 4문항 User R base R CFI .956 RMSEA .076 SRMR .053
@@ -273,4 +278,20 @@ fit<-cfa(mod,dat, std.lv=TRUE,missing="fiml")
 summary(fit,fit.measures=TRUE)
 modindices(fit,sort=TRUE)
 
+#성실(계획) 5문항
+head(dat[c(214,216,217,232,246,348,349,352,355,360,366,368,376,377,380,383)])
+mod<-'SS=~j25+j43R+q3R+q4+q35R'
+fit<-cfa(mod,dat, std.lv=TRUE,missing="fiml")
+summary(fit,fit.measures=TRUE)
+modindices(fit,sort=TRUE)
 
+#성실 q7 q15 시간엄수
+mod<-'SS=~j25+q3R+q4+q31'
+fit<-cfa(mod,dat, std.lv=TRUE,missing="fiml")
+summary(fit,fit.measures=TRUE)
+modindices(fit,sort=TRUE)
+fa(dat[c(214,216,217,232,246,348,349,352,355,360,366,368,376,377,380,383)],nfactors=1,rotate="varimax")
+fa(dat[c(216,217,246,352,355,360,366,368,376,377,383)],nfactors=1,rotate="varimax")
+#q7 q15 q21 q23R 
+#j27 j28 q10
+#j25 j43R j57R q3R q4 q35R
