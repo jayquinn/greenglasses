@@ -117,12 +117,14 @@ mod<-'HS=~h1+h3R+h5+h12R'
 fit<-cfa(mod,dat, std.lv=TRUE)
 summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
+semPaths(fit)
 #분노 2 4문항 뭔가 내재된 분노..(화가 많은데 억누름)
 head(dat[c(150:158,160:163)])
 mod<-'HS=~h2+h8+h9+h11'
 fit<-cfa(mod,dat, std.lv=TRUE)
 summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
+semPaths(fit)
 #분노 2요인 모형 User A base R CFI .974 RMSEA .062 SRMR .062
 head(dat[c(150:158,160:163)])
 mod<-'BN1=~h1+h3R+h5+h12R
@@ -153,7 +155,7 @@ mod<-'UH1=~q6R+q41+q11+q19
 fit<-cfa(mod,dat, std.lv=TRUE)
 summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
-
+semPaths(fit)
 #경조 아이디어 4문항
 head(dat[c(325,326,328:345,228,229)])
 mod<-'KJidea=~p2+p8+p9+p12'
@@ -161,7 +163,7 @@ fit<-cfa(mod,dat, std.lv=TRUE)
 summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
 
-#경조 폭발력 5문항
+#경조 폭발력 4문항
 head(dat[c(325,326,328:345,228,229)])
 mod<-'KJPB=~p10+p13+p18+p21+j39'
 fit<-cfa(mod,dat, std.lv=TRUE)
@@ -171,11 +173,12 @@ modindices(fit,sort=TRUE)
 #경조 2요인 User A base R CFI .992 RMSEA .018 SRMR .056
 head(dat[c(325,326,328:345,228,229)])
 mod<-'KJidea=~p2+p8+p9+p12
-  KJPB=~p10+p13+p18+p21+j39'
+  KJPB=~p10+p13+p18+j39'
 fit<-cfa(mod,dat, std.lv=TRUE)
 summary(fit,fit.measures=TRUE,standardized=TRUE)
 modindices(fit,sort=TRUE)
 
+semPaths(fit)
 #집중력 5문항 User A base R CFI 1 RMSEA 0 SRMR .024
 head(dat[c(26:31)])
 mod<-'KJidea=~a26+a27+a29+a30+a31R'
@@ -269,4 +272,5 @@ mod<-'jujang=~e6+j12R+j16+j37+j62R+j67R'
 fit<-cfa(mod,dat, std.lv=TRUE,missing="fiml")
 summary(fit,fit.measures=TRUE)
 modindices(fit,sort=TRUE)
+
 
